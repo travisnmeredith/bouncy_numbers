@@ -23,3 +23,16 @@ def int_to_iter(n):
     for char in str(n):
         iterable.append(int(char))
     return iterable
+
+
+def main():
+    bouncy = 0
+    i = 99
+    TARGET_PROPORTION = 0.99
+    while bouncy/i != TARGET_PROPORTION:
+        i += 1
+        bouncy += (1 if is_bouncy(int_to_iter(i)) else 0)
+    print(i, bouncy, bouncy/i)
+
+if __name__ == "__main__":
+    main()
