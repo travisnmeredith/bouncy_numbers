@@ -10,5 +10,7 @@ def list_matches(iterable, func):
             return False
     return True
 
-
-
+def is_bouncy(iterable):
+    return not (list_matches(iterable, GROWER)
+            or (list_matches(iterable, SHRINKER))
+            or (list_matches(iterable, SAMER)))
