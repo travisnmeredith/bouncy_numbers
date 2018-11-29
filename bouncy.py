@@ -8,6 +8,7 @@ def list_matches(iterable, func):
     for i in range(1, len(iterable)):
         if not func(c, iterable[i]):
             return False
+        c = iterable[i]
     return True
 
 def is_bouncy(iterable):
@@ -22,4 +23,3 @@ def int_to_iter(n):
     for char in str(n):
         iterable.append(int(char))
     return iterable
-
