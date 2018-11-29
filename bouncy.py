@@ -1,4 +1,6 @@
 
+GROWER = lambda x0, x1: x1 > x0
+SHRINKER = lambda x0, x1: x1 < x0
     
 def list_matches(iterable, func):
     c = iterable[0]
@@ -6,4 +8,6 @@ def list_matches(iterable, func):
         if not func(c, iterable[i]):
             return False
     return True
+
+
 
