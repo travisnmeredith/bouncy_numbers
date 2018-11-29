@@ -1,4 +1,6 @@
 
+TARGET_PROPORTION = 0.99
+
 GROWER = lambda x0, x1: x1 >= x0
 SHRINKER = lambda x0, x1: x1 <= x0
     
@@ -28,15 +30,14 @@ def int_to_iter(n: int) -> list:
         iterable.append(int(char))
     return iterable
 
-
 def main():
     bouncy = 0
     i = 99
-    TARGET_PROPORTION = 0.99
     while bouncy/i != TARGET_PROPORTION:
         i += 1
         bouncy += (1 if is_bouncy(int_to_iter(i)) else 0) # adds 1 to bouncy when i is bouncy
     print(i, bouncy, bouncy/i)
+
 
 if __name__ == "__main__":
     main()
