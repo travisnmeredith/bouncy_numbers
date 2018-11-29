@@ -14,3 +14,12 @@ def is_bouncy(iterable):
     return not (list_matches(iterable, GROWER)
             or (list_matches(iterable, SHRINKER))
             or (list_matches(iterable, SAMER)))
+
+def int_to_iter(n):
+    assert isinstance(n, int)
+    assert n >= 0
+    iterable = []
+    for char in str(n):
+        iterable.append(int(char))
+    return iterable
+
