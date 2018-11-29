@@ -1,6 +1,7 @@
 
-GROWER = lambda x0, x1: x1 > x0
-SHRINKER = lambda x0, x1: x1 < x0
+GROWER = lambda x0, x1: x1 >= x0
+SHRINKER = lambda x0, x1: x1 <= x0
+SAMER = lambda x0, x1: x0 == x1
     
 def list_matches(iterable, func):
     c = iterable[0]
