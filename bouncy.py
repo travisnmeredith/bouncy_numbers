@@ -1,4 +1,6 @@
 
+from sys import argv
+
 TARGET_PROPORTION = 0.99
 
 GROWER = lambda x0, x1: x1 >= x0
@@ -31,9 +33,14 @@ def int_to_iter(n: int) -> list:
     return iterable
 
 def main():
+    target = (TARGET_PROPORTION if len(argv) <= 1 else float(argv[1]))
+    limiter = (1-((1 - target)/10) if len(argv) <= 2 else float(argv[2]))
     bouncy = 0
     i = 99
-    while bouncy/i != TARGET_PROPORTION:
+    while bouncy/i != target:
+        if bouncy/i >= limiter:
+            print("OPERATION FAILED, COULD NOT FIND WITHIN LIMIT")
+            break
         i += 1
         bouncy += (1 if is_bouncy(int_to_iter(i)) else 0) # adds 1 to bouncy when i is bouncy
     print(i, bouncy, bouncy/i)
